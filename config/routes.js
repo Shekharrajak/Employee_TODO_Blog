@@ -63,10 +63,10 @@ module.exports.routes = {
     view: 'signup'
   },
 
-   '/post': {
+  /* '/post': {
       controller: 'PostController',
       action: 'index'
-  },
+  },*/
  /* 'post /post/new': {
       controller: 'PostController.new',
       action: 'index'

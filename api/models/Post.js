@@ -19,21 +19,22 @@ module.exports = {
       type: 'string'
       // required: true
   	},
+  	 oneLiner: {
+      type: 'text'
+      // required: true
+    },
 
     jobDescription: {
       type: 'text'
       // required: true
     },
 
-    howToApply: {
+   /* howToApply: {
       type: 'text'
       // required: true
     },
 
-    oneLiner: {
-      type: 'text'
-      // required: true
-    },
+   
 
     companyName: {
       type: 'string'
@@ -41,6 +42,10 @@ module.exports = {
     },
 
     homeOffice: {
+      type: 'string'
+      // required: true
+    },*/
+    userEmail: {
       type: 'string'
       // required: true
     },
@@ -53,12 +58,9 @@ module.exports = {
     usOnly : {
       type: 'string'
       // required: true
-    },
+    }
 
-    userEmail: {
-      type: 'string'
-      // required: true
-    },
+   /* 
 
     active: {
       type: 'boolean',
@@ -78,7 +80,7 @@ module.exports = {
     conversion: {
       type: 'integer',
       defaultsTo: '0'
-    }
+    }*/
     
   }
 

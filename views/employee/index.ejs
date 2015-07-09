@@ -110,7 +110,7 @@
         <p><span class="company"><%= post.companyName %></span> <span class="location"><%= post.homeOffice %></span></p>
         <p class="oneLiner"><%= post.oneLiner %></p>
         <% if(post.usOnly == "yes") { %><p class="usOnlyTag">U.S. Only</p> <% } %>
-        <% if (req.user && req.User.email == post.user.email) { %>
+        <% if (req.user && req.user.email == post.userEmail) { %>
         <a href="/post/edit/<%= post.id %>">Edit Job</a>
         <% } %>
         <p class="createdAt pull-right" data-job="<%= post.id %>" datetime="<%= post.createdAt %>"><%= post.createdAt %></p>

@@ -32,23 +32,11 @@
 
 		    <form action="/post/new" class="col-sm-6 col-sm-offset-3" method="POST" id="postSubmit">
 
-		    	<h2 class="editable" data-placeholder="Type job title" name="jobTitle"></h2><br>
-
-		    	<select class="form-control" type="text" name="profession" id="profession">
-					<option>Select Category</option>
-					<option value="programming">Programming</option>
-					<option value="design">Design</option>
-					<option value="marketing">Marketing</option>
-					<option value="systemAdmin">System Admin</option>
-					<option value="businessAdmin">Business Admin/Executive</option>
-					<option value="sales">Sales</option>
-					<option value="customerSupport">Customer Support</option>
-					<option value="misc">Miscellaneous</option>
-				</select><br> 
+		    	
 
 				<p class="editable2" name="oneLiner" data-placeholder="Type something awesome about your blog" maxlength="50"></p> <br />
 
-				<p class="editable3" name="jobDescription" data-placeholder="Typeblog description" maxlength="50"></p><br>
+				
 
 		     <label>Blog Title:</label>
 			<input type="text" class="form-control" name="jobTitle" id="jobTitle" placeholder="e.g. Web Development"/><br>
@@ -66,8 +54,7 @@
 				<option value="misc">Miscellaneous</option>
 			</select><br>
 
-			<label>Briefly describe something awesome about your blog: <br><span class="lead" style="font-size:14px;">(max 50 characters)</span></label>
-			<input type="text" class="form-control" name="oneLiner" id="oneLiner" placeholder="e.g.Microsoft ,loving it " maxlength="50"/><br>
+			
 
 			<label>Blog content</label>
 			
@@ -100,7 +87,7 @@
 				<option value="yes">Yes</option>
 			</select><br>
 
-			<input type="hidden" name="userID" value="<%= req.User %>" />
+			<input type="hidden" name="userEmail" value="<%= req.user.email %>" />
 			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
 
 		    <hr>

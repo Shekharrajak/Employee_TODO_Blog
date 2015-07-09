@@ -40,7 +40,7 @@ module.exports = {
 	},
 
 	all: function (req, res, next) {
-		var user = req.User.email;
+		var user = req.user.email;
 		Post.find()
 		.where({userEmail: user})
 		.sort({createdAt: 'desc'})

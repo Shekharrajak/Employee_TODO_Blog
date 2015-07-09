@@ -69,17 +69,17 @@ module.exports.routes = {
   },
   'get /search/post': {
       controller: 'SearchController',
-      action: 'search/post'
+      action: 'post'
   },
 
   'post /search/post': {
-      controller: 'SearchController.post',
-      action: 'search/post'
+      controller: 'SearchController',
+      action: 'post'
   },
 
 
   //'get /signup': { view: 'conversion/signup' },
-  //'post /signup': 'AuthController.signup',
+  'post /signup': 'AuthController.signup',
  // 'get /login': { view: 'portal/login' },
   //'post /login': 'AuthController.processLogin',
   '/logout': 'AuthController.logout',

@@ -53,9 +53,9 @@ module.exports = {
         req.logout();
         res.redirect('/');
     },
-   /* signup: function(req, res) {
+    signup: function(req, res) {
        
-        res.redirect('/');
+        res.redirect('/login');
     
-    }*/
+    }
 };

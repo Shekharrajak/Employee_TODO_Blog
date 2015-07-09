@@ -1,23 +1,18 @@
 
-
-<form action="/employee" method="POST" class="form-signin">
+<div class = "col-md-6" style="left:20%;margin-top:10%">
+<form action="/signup" method="POST" class="form-signin">
 
     <h3>Create a new account..</h3>
 
-    <% if(flash && flash.err) { %>
-    <ul class="alert alert-danger">
-        <% Object.keys(flash.err).forEach(function(error) { %>
-        <li><%- JSON.stringify(flash.err[error]) %></li>
-        <% }) %>
-    </ul>
-    <% } %>
+    
 
    
-    <input type="text" class="form-control" placeholder="Email address" name="email">
-    <input type="password" class="form-control" placeholder="Password" name="paassword">
+    <input type="text" class="form-control" placeholder="Email address" name="email"><br>
+    <input type="password" class="form-control" placeholder="Password" name="paassword"><br>
     <input type="submit" class="btn btn-success center-block col-xs-12" value="Sign Up"><br>
     <p style="text-align:center;margin-top:30px;">Already have an account? <a href="/login">Sign in</a></p>
     <input type="hidden" value="<%= _csrf %>" name="_csrf">
 
 
 </form>
+</div>

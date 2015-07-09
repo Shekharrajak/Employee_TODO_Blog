@@ -53,7 +53,21 @@
 
    '*': true,
 
-  'PostController': {
+  /*'EmployeeController': {
     '*': 'isAuthenticated'
+  },*/
+  'EmployeeController': {
+  
+  },
+  'AuthController': {
+    '*': 'isAuthenticated'
+  },
+
+   '*': 'flash',
+
+  user: {
+    'signup': 'flash',
+    login: 'flash',
+    
   },
 };

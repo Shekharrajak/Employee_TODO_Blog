@@ -60,6 +60,14 @@ module.exports.routes = {
 
   'get /signup': {
     view: 'signup'
-  }
+  },
+
+
+  //'get /signup': { view: 'conversion/signup' },
+  'post /signup': 'AuthController.signup',
+ // 'get /login': { view: 'portal/login' },
+  //'post /login': 'AuthController.processLogin',
+  '/logout': 'AuthController.logout',
+ // 'get /me': 'UserController.profile'
 
 };

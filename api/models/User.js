@@ -37,7 +37,13 @@ module.exports = {
                 }
             });
         });
-    }
+    },
+    getEmail: function () {
+    
+        return User.email;
+     
+  }
+   
 };
 
 

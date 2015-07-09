@@ -18,19 +18,36 @@ module.exports = {
 
         passport.authenticate('local', function(err, user, info) {
             if ((err) || (!user)) {
-                return res.send({
+				return res.send({
                     message: info.message,
                     user: user
                 });
             }
             req.logIn(user, function(err) {
                 if (err) res.send(err);
+
                 return res.redirect('/employee');
-            });
-            res.redirect('/employee');
+                /*return res.send({
+                    message: info.message,
+                    user: user*/
+                
+            });												               /* return res.send({
+																                    message: info.message,
+																                    user: user
+																                });
+																            }
+																            req.logIn(user, function(err) {
+																                if (err) res.send(err);
+																                //res.redirect('/employee');
+																                return;
+																            });
+																            res.redirect('/employee');
+																            return;*/
 
         })(req, res);
     },
+      
+
 
     logout: function(req, res) {
         req.logout();

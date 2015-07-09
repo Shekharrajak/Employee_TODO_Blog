@@ -18,6 +18,32 @@ passport.use(new LocalStrategy({
   },
   function(email, password, done) {
 
+       User.findOne({ email: email }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect email.Go back andtry with correct one' });
+      }
+
+      bcrypt.compare(password, user.password, function (err, res) {
+          if (!res)
+            return done(null, false, {
+              message: 'Invalid Password, go back and type correct password !'
+            });
+          var returnUser = {
+            email: user.email,
+            createdAt: user.createdAt,
+            id: user.id
+          };
+          return done(null, returnUser, {
+            message: 'Logged In Successfully'
+          });
+        });
+    });
+  }
+));
+
+/*
+
     User.findOne({ email: email }, function (err, user) {
       if (err) { return done(err); }
       if (!user) {
@@ -34,13 +60,13 @@ passport.use(new LocalStrategy({
             createdAt: user.createdAt,
             id: user.id
           };
-          return done(null, returnUser, {
+          return done(null,user);/*done(null, returnUser, {
             message: 'Logged In Successfully'
-          });
+          });*/
+/*
 
-          
 
         });
     });
   }
-));
+));*/

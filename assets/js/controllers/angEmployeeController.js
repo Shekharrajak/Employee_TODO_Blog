@@ -2,6 +2,7 @@ define(function () {
     return ['$scope', '$http', function($scope, $http) {
      
 
+
 function resetItem(){
    $scope.employee = {
       name : '',

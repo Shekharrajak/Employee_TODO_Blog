@@ -59,15 +59,15 @@
   'EmployeeController': {
   
   },
-  'AuthController': {
+ /* 'AuthController': {
     '*': 'isAuthenticated'
-  },
+  },*/
 
    '*': 'flash',
 
-  user: {
+  /*user: {
     'signup': 'flash',
-    login: 'flash',
+    'login': 'flash',
     
-  },
+  },*/
 };

@@ -36,10 +36,11 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  '/search/contact':{
+  'get /search/contact':{
     view:'/search/contact'
   },
 
+  'post /search/contact':'SearchController.search',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
@@ -62,9 +63,23 @@ module.exports.routes = {
     view: 'signup'
   },
 
+   '/post': {
+      controller: 'PostController',
+      action: 'index'
+  },
+  'get /search/post': {
+      controller: 'SearchController',
+      action: 'search/post'
+  },
+
+  'post /search/post': {
+      controller: 'SearchController.post',
+      action: 'search/post'
+  },
+
 
   //'get /signup': { view: 'conversion/signup' },
-  'post /signup': 'AuthController.signup',
+  //'post /signup': 'AuthController.signup',
  // 'get /login': { view: 'portal/login' },
   //'post /login': 'AuthController.processLogin',
   '/logout': 'AuthController.logout',

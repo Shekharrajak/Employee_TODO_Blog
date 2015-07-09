@@ -1,0 +1,136 @@
+<div class="container" style="margin-top:20%">
+	<% if (!req.user) { %>
+	<div class="col-md-12 signinPrompt">
+		<form action="/login" method="POST" class="form-signin">
+
+			<% if(flash && flash.err) { %>
+			<ul class="alert alert-success">
+				<% Object.keys(flash.err).forEach(function(error) { %>
+				<li><%- JSON.stringify(flash.err[error]) %></li>
+				<% }) %>
+			</ul>
+			<% } %>
+
+			<input type="text" class="form-control" placeholder="Email address" name="email"><br>
+			<input type="password" class="form-control" placeholder="Password" name="password"><br>
+			<input type="submit" class="btn btn-default center-block col-xs-12" value="Login"><br> 
+			<p style="text-align:center;margin-top:30px;">Don't have an account? <a href="/signup">Sign Up</a></p>
+			<input type="hidden" value="<%= _csrf %>" name="_csrf">
+
+
+		</form>
+	</div>
+	<% } %>
+
+	<% if (req.user) { %>
+		<div class="col-sm-6 col-sm-offset-3">
+			<h2>Create Your Blog</h2>
+			<hr>
+		</div>
+
+			<% if(flash && flash.err) { %>
+		    <ul class="alert alert-danger">
+		        <% Object.keys(flash.err).forEach(function(error) { %>
+		        <li><%- JSON.stringify(flash.err[error]) %></li>
+		        <% }) %>
+		    </ul>
+		    <% } %>
+
+		    <form action="/post/new" class="col-sm-6 col-sm-offset-3" method="POST" id="postSubmit">
+
+		    	<h2 class="editable" data-placeholder="Type job title" name="jobTitle"></h2><br>
+
+		    	<!-- <select class="form-control" type="text" name="profession" id="profession">
+					<option>Select Category</option>
+					<option value="programming">Programming</option>
+					<option value="design">Design</option>
+					<option value="marketing">Marketing</option>
+					<option value="systemAdmin">System Admin</option>
+					<option value="businessAdmin">Business Admin/Executive</option>
+					<option value="sales">Sales</option>
+					<option value="customerSupport">Customer Support</option>
+					<option value="misc">Miscellaneous</option>
+				</select><br> -->
+
+				<p class="editable2" name="oneLiner" data-placeholder="Type something awesome about your company" maxlength="50"></p> <br />
+
+				<p class="editable3" name="jobDescription" data-placeholder="Type job description" maxlength="50"></p><br>
+
+		    <!-- <label>Job Title:</label>
+			<input type="text" class="form-control" name="jobTitle" id="jobTitle" placeholder="e.g. Ruby on Rails Developer"/><br>
+
+			<label>Position Type:</label>
+			<select class="form-control" type="text" name="profession" id="profession">
+				<option>Select One</option>
+				<option value="programming">Programming</option>
+				<option value="design">Design</option>
+				<option value="marketing">Marketing</option>
+				<option value="systemAdmin">System Admin</option>
+				<option value="businessAdmin">Business Admin/Executive</option>
+				<option value="sales">Sales</option>
+				<option value="customerSupport">Customer Support</option>
+				<option value="misc">Miscellaneous</option>
+			</select><br>
+
+			<label>Briefly describe something awesome about your company: <br><span class="lead" style="font-size:14px;">(max 50 characters)</span></label>
+			<input type="text" class="form-control" name="oneLiner" id="oneLiner" placeholder="e.g. Google funded startup w/ unlimited vacation!" maxlength="50"/><br>
+
+			<label>Job Description:</label>
+			<div id="alerts"></div>
+		    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+		      <div class="btn-group">
+		        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+		          <ul class="dropdown-menu">
+		          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+		          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+		          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+		          </ul>
+		      </div>
+		      <div class="btn-group">
+		        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+		      </div>
+		      <div class="btn-group">
+		      	<a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+		      </div>
+		      <div class="btn-group">
+		      	<a class="btn" data-edit="insertorderedlist" title="" data-original-title="Number list"><i class="fa fa-list-ol"></i></a>
+		      </div>
+		      <div class="btn-group">
+		        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
+		      </div>
+		      
+		    </div>
+		    
+		    <div id="editor" name="jobDescription">
+		      
+		    </div> 
+		    <br>
+
+			<label>Email address you want inquiries to be sent to:<br></label>
+			<input type="email" class="form-control" name="howToApply" id="howToApply" placeholder="e.g. spr@hspr.co"><br>
+
+			<label>Company Name:</label>
+			<input type="text" class="form-control" name="companyName" id="companyName" value="companyName" placeholder="e.g. Google" /><br>
+
+			<label>Home Office:</label>
+			<input type="text" class="form-control" name="homeOffice" id="homeOffice" placeholder="e.g. San Francisco, CA" /><br>
+
+			<label>Company URL:</label>
+			<input type="text" class="form-control" name="companyURL" id="companyURL" placeholder="spr.co" /><br>
+
+			<label>U.S. applicants only?</label>
+			<select class="form-control" type="text" name="usOnly" id="usOnly">
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select><br> -->
+
+			<input type="hidden" name="userID" value="<%= req.User %>" />
+			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+
+		    <hr>
+		    <input type="button" value="Post Job" class="btn savePost">
+		 
+		</form>
+	<% } %>
+
+</div>

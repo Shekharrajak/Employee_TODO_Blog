@@ -1,4 +1,4 @@
-<div style="text-align:center; font-size:1.5em;margin:15px">
+<div style="text-align:center; font-size:1.5em;margin-top:100px">
 Visit <a href="#">Sails JS ,MongoDB ,Passport Auth </a> 
 </div>
 <div class="container">
@@ -26,7 +26,7 @@ Visit <a href="#">Sails JS ,MongoDB ,Passport Auth </a>
           <div class="col-md-3">Phone</div>
           <div class="col-md-3"></div>
      </div>
-
+     
 <hr>
    
 
@@ -64,8 +64,62 @@ Visit <a href="#">Sails JS ,MongoDB ,Passport Auth </a>
 
 
 
+
+</div>
+</div>
+</div>
+</div></div>
+<hr>
+<br>
+  
+<div class="container">
+<% if (req.user) { %>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 intro">
+      <h1><strong>--  </strong> Blogs here  <strong>-- </h1>
       
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-2 animated fadeInLeft">
+      <form method="POST" action="/search/post">
+      <select class="form-control" name="profession">
+        <option value="all">Select Category of blog</option>
+        <option value="programming">Programming</option>
+        <option value="design">Design</option>
+        <option value="marketing">Marketing</option>
+        <option value="systemAdmin">System Admin</option>
+        <option value="businessAdmin">Business Admin/Executive</option>
+        <option value="sales">Sales</option>
+        <option value="customerSupport">Customer Support</option>
+        <option value="misc">Miscellaneous</option>
+      </select>
+    </div>
+    <div class="searchBar col-sm-4 animated fadeInRight">
+        <input type="text" name="searchQuery" placeholder="Search: 'Technical blogs ..'" class="form-control">
+        <input type="submit" class="btn pull-right" value="Search">
+      </form>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 posts animated fadeInUp">
+      <% _.each(posts, function(post) { %>
+      <div class="post">
+        <p class="jobTitle"><a <% if (!req.user) { %>class="viewJob" <% } %> href="/post/show/<%= post.id %>" data-job="<%= post.id %>"><%= post.jobTitle %></a></p>
+        <p><span class="company"><%= post.companyName %></span> <span class="location"><%= post.homeOffice %></span></p>
+        <p class="oneLiner"><%= post.oneLiner %></p>
+        <% if(post.usOnly == "yes") { %><p class="usOnlyTag">U.S. Only</p> <% } %>
+        <% if (req.user && req.User.email == post.user.email) { %>
+        <a href="/post/edit/<%= post.id %>">Edit Job</a>
+        <% } %>
+        <p class="createdAt pull-right" data-job="<%= post.id %>" datetime="<%= post.createdAt %>"><%= post.createdAt %></p>
+      </div>
+      <% }) %>
 
+      
+    </div>
+  </div>
+</div>
 
-</div>
-</div>
+ <% } %>

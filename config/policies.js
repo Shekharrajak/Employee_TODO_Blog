@@ -70,4 +70,8 @@
     'login': 'flash',
     
   },*/
+
+  post: {
+    //'*': 'flash'
+  }
 };

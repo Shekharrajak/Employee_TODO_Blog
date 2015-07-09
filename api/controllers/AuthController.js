@@ -52,5 +52,10 @@ module.exports = {
     logout: function(req, res) {
         req.logout();
         res.redirect('/');
-    }
+    },
+   /* signup: function(req, res) {
+       
+        res.redirect('/');
+    
+    }*/
 };

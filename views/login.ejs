@@ -1,0 +1,18 @@
+
+<form action="/employee" method="POST" class="form-signin">
+
+	<% if(flash && flash.err) { %>
+		<% Object.keys(flash.err).forEach(function(error) { %>
+		<!-- <p class="alert alert-danger"><%- JSON.stringify(flash.err[error]) %></p> -->
+		<p class="alert alert-danger"><%- JSON.stringify(flash.err[error]) %></p>
+		<% }) %>
+	<% } %>
+
+	<input type="text" class="form-control" placeholder="Email address" name="email">
+	<input type="password" class="form-control" placeholder="Password" name="password">
+	<input type="submit" class="btn btn-default center-block col-xs-12" value="Login"><br> 
+	<p style="text-align:center;margin-top:30px;">Don't have an account? <a href="/signup">Sign Up</a></p>
+	<input type="hidden" value="<%= _csrf %>" name="_csrf">
+
+
+</form>

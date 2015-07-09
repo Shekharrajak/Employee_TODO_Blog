@@ -17,7 +17,7 @@
 		        <% }) %>
 		    </ul>
 		    <% } %>
-		    <h4>About the position</h4>
+		    <h4>About the blog</h4>
 		    <hr>
 
 		    <label>Blog Title:</label>
@@ -40,8 +40,8 @@
 			<input type="text" class="form-control" name="oneLiner" value="<%= post.oneLiner %>" maxlength="50"/><br>
 
 			<label>Job Description:</label>
-			<div id="alerts"></div>
-		    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+			
+		    
 		      <div class="btn-group">
 		        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
 		          <ul class="dropdown-menu">
@@ -50,42 +50,23 @@
 		          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
 		          </ul>
 		      </div>
-		      <div class="btn-group">
-		        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-		      </div>
-		      <div class="btn-group">
-		      	<a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
-		      </div>
-		      <div class="btn-group">
-		      	<a class="btn" data-edit="insertorderedlist" title="" data-original-title="Number list"><i class="fa fa-list-ol"></i></a>
-		      </div>
-		      <div class="btn-group">
-		        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
-		      </div>
 		      
-		    </div>
-		    <div class="getHtml" style="display:none"><%= post.jobDescription %></div>
-		    <div id="editor" name="jobDescription">
 		      
+		    
+		    <div class="getHtml" style="display:none">
+		    		<textarea class="form-control" rows="5" id="comment" value="<%= post.jobDescription %>" ></textarea>
 		    </div>
+		    
 		    <br>
 
 			<label>Email address you want inquiries to be sent to:<br></label>
 			<input type="email" class="form-control" name="howToApply" value="<%= post.howToApply %>"><br>
 
-			<h4>About the Company</h4>
-			<hr>
-
-			<label>Company Name:</label>
-			<input type="text" class="form-control" name="companyName" value="<%= req.session.User.companyName %>" /><br>
-
-			<label>Home Office:</label>
-			<input type="text" class="form-control" name="homeOffice" value="<%= post.homeOffice %>" /><br>
-
-			<label>Company URL:</label>
+			
+			<label>reference URL:</label>
 			<input type="text" class="form-control" name="companyURL" value="<%= post.companyURL %>" /><br>
 
-			<label>U.S. applicants only?</label>
+			<label>Prvate blog only?</label>
 			<select class="form-control" type="text" name="usOnly">
 				<option value="<%= post.usOnly %>"><%= post.usOnly %></option>
 				<option value="no">No</option>

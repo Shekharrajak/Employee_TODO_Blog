@@ -1,4 +1,6 @@
 # Employee_TODO_Blog
+I changed my 'TODO' part of idea now it is employees contact list .Employee can sign up and post blog only authenticated employees can see the blog and add new one.
+
 Task by : Innoneur IT Ventures Pvt Ltd ,  intern assignment task.
 
 Used languages and Frameworks :

@@ -75,11 +75,28 @@ module.exports.routes = {
       controller: 'SearchController',
       action: 'post'
   },
-  'post /post/new':'PostController.new',
+  /*'post /post/new':'PostController.new',*/
 
   'post /search/post': {
       controller: 'SearchController',
       action: 'post'
+  },
+   'get /post/new': {
+      controller: 'PostController',
+      action: 'post/index'
+  },
+  'post /post/new': {
+      controller: 'PostController',
+      action: 'post/all'
+  },
+  '/post/update/<%= post.id %>' :{
+    controller:'PostController',
+    action:'post/edit'
+  },
+
+  '/post': {
+      controller: 'PostController',
+      action: 'index'
   },
 
 

@@ -6,7 +6,7 @@
 					<p class="jobTitle"><%= post.jobTitle %></p>
 				</div>
 				<div class="col-xs-12 col-sm-6">
-					<a data-toggle="modal" data-target="#apply" class="btn pull-right">APPLY FOR POSITION</a>
+					
 				</div>
 			</div>
 			<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.homeOffice %>)</span></p><hr>
@@ -18,7 +18,7 @@
 			<div class="job-info">
 			</div>
 			<hr>
-			<a data-toggle="modal" data-target="#apply" class="btn btn-lg center-block">APPLY FOR POSITION</a>
+			<a data-toggle="modal" data-target="#apply" class="btn btn-lg center-block">Review </a>
 		</div>
 	</div>
 </div>
@@ -30,15 +30,16 @@
       <div class="modal-body">
         <form action="/post/apply" method="POST">
         	<div class="col-md-6 col-md-offset-3">
-        	<label>Your email address:</label>
-        	<input type="email" class="form-control" name="applicantEmail" required />
+        	<label>Your email address:</label><br>
+        	<input type="email" class="form-control" name="applicantEmail" required /><hr>
+        	<input type="text" class="form-control" name="applicantEmail" value="Rate this blog in scale of 10" required /><br>
         	<input type="hidden" value="<%= post.id %>" name="id" />
 	        </div>
 	        <div class="clearfix"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn<% if (!req.user) { %> jobSubmission <% } %> btn-primary" data-job="<%= post.id %>">Apply</button>
+        <button type="submit" class="btn<% if (!req.user) { %> jobSubmission <% } %> btn-primary" data-job="<%= post.id %>">Subscribe for my blog</button>
         </form>
       </div>
     </div>
